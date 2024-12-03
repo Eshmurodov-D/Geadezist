@@ -1,1 +1,1 @@
-# Geadezist
+<!-- Login ni man oganma etteya qilb beramn -->
