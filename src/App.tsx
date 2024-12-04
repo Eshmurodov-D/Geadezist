@@ -7,14 +7,18 @@ import '@fontsource/roboto/700.css';
 import ChangePassword from "./auth/ChangePasswordForm/changePassword"
 import Login from "./auth/LoginForm/login"
 import Register from "./auth/RegisterForm/register"
+import { Route,  Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-     <Login /> 
-     <Register />
-     <ChangePassword/>
-    </>
+    <div>
+        <Routes>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
+        <ChangePassword/>
+        </Routes>
+
+    </div>
   )
 }
 
