@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// TypeScript types
 type VerificationCode = string[];
 
 function VerifyEmail() {
@@ -12,16 +11,14 @@ function VerifyEmail() {
   const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
-  // Handle input change for each digit
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const value = e.target.value;
     if (/^\d*$/.test(value) && value.length <= 1) {
       const newCode = [...verificationCode];
-      newCode[index] = value; // Set the value for the specific digit
+      newCode[index] = value;
       setVerificationCode(newCode);
-      setError(""); // Clear error
+      setError("");
 
-      // Move to the next input field when a digit is entered
       if (index < 5 && value !== "") {
         document.getElementById(`input-${index + 1}`)?.focus();
       }
@@ -30,11 +27,10 @@ function VerifyEmail() {
     }
   };
 
-  // Handle verify action
   const handleVerify = () => {
     const code = verificationCode.join("");
     if (code.length < 6) {
-      toast.error("Please enter the 6-digit verification code."); // Toast error
+      toast.error("Please enter the 6-digit verification code.");
       return;
     }
 
@@ -81,7 +77,7 @@ function VerifyEmail() {
               label=""
               variant="outlined"
               value={value}
-              onChange={(e) => handleInputChange(e, index)}  // Fixed type for onChange handler
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(e, index)}
               error={!!error}
               helperText={error && index === 5 ? error : ""}
               fullWidth
