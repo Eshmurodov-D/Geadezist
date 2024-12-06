@@ -1,68 +1,66 @@
-import React, { useState } from "react";
-import { TextField, Button, InputAdornment, Box } from "@mui/material";
-import { Email, Lock } from "@mui/icons-material";
+import React from "react";
+import { TextField, InputAdornment, Box } from "@mui/material";
+import { Email, Lock, Person, Phone, Home, LocationCity } from "@mui/icons-material";
 
 type InputField = {
   label: string;
-  variant?: "outlined" | "filled" | "standard";
+  placeholder: string;
   type?: string;
 };
 
 type CustomInputsProps = {
   inputs: InputField[];
-  buttonText: string;
-  onSubmit: () => void;
+  values: Record<string, string>;
+  onChange: (label: string, value: string) => void;
+  error: string;
+  emailError: string;
 };
 
-function Inputs({ inputs, buttonText, onSubmit }: CustomInputsProps) {
-  const [values, setValues] = useState<Record<string, string>>(
-    inputs.reduce((acc, input) => ({ ...acc, [input.label]: "" }), {})
-  );
-
-  const handleChange = (label: string, value: string) => {
-    setValues((prev) => ({ ...prev, [label]: value }));
-  };
-
-  const allFieldsFilled = Object.values(values).every((value) =>
-    String(value).trim() !== ""
-  );
-
+const Inputs = ({ inputs, values, onChange, error, emailError }: CustomInputsProps) => {
   return (
-    <Box display="flex" flexDirection="column" gap={3}>
+    <Box display="flex" flexDirection="column" gap={2}>
       {inputs.map((input, index) => (
         <TextField
-          key={index}
-          label={input.label}
-          variant={input.variant || "outlined"}
-          type={input.type || "text"}
-          fullWidth
-          value={values[input.label] || ""}
-          onChange={(e) => handleChange(input.label, e.target.value)}
+        key={index}
+        label={input.placeholder}
+        type={input.type || "text"}
+        value={values[input.label] || ""}
+        onChange={(e) => onChange(input.label, e.target.value)}
+        fullWidth
           InputProps={{
             startAdornment:
-              input.label === "Email" ? (
+              input.label === "email" ? (
                 <InputAdornment position="start">
                   <Email color="primary" />
                 </InputAdornment>
-              ) : input.label === "Password" ? (
+              ) : input.label === "password" || input.label === "confirmPassword" ? (
                 <InputAdornment position="start">
                   <Lock color="primary" />
                 </InputAdornment>
+              ) : input.label === "firstName" || input.label === "lastName" ? (
+                <InputAdornment position="start">
+                  <Person color="primary" />
+                </InputAdornment>
+              ) : input.label === "phone" ? (
+                <InputAdornment position="start">
+                  <Phone color="primary" />
+                </InputAdornment>
+              ) : input.label === "address" ? (
+                <InputAdornment position="start">
+                  <Home color="primary" />
+                </InputAdornment>
+              ) : input.label === "city" ? (
+                <InputAdornment position="start">
+                  <LocationCity color="primary" />
+                </InputAdornment>
               ) : null,
           }}
+          error={input.label === "email" ? !!emailError : !!error}
+          helperText={input.label === "email" ? emailError : error}
         />
       ))}
-
-      <Button
-        variant="contained"
-        color="primary"
-        disabled={!allFieldsFilled}
-        onClick={onSubmit}
-      >
-        {buttonText}
-      </Button>
     </Box>
   );
-}
+};
 
 export default Inputs;

@@ -29,7 +29,7 @@ function ChangePassword() {
         <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
           Change Password
         </Typography>
-        <Inputs inputs={inputs} /> {/* Inputs komponentidan foydalanamiz */}
+        <Inputs inputs={inputs} />
       </Box>
     </Box>
   );
