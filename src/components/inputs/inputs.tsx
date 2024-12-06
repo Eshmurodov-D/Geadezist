@@ -1,4 +1,3 @@
-import React from "react";
 import { TextField, InputAdornment, Box } from "@mui/material";
 import { Email, Lock, Person, Phone, Home, LocationCity } from "@mui/icons-material";
 
@@ -21,12 +20,12 @@ const Inputs = ({ inputs, values, onChange, error, emailError }: CustomInputsPro
     <Box display="flex" flexDirection="column" gap={2}>
       {inputs.map((input, index) => (
         <TextField
-        key={index}
-        label={input.placeholder}
-        type={input.type || "text"}
-        value={values[input.label] || ""}
-        onChange={(e) => onChange(input.label, e.target.value)}
-        fullWidth
+          key={index}
+          label={input.placeholder}
+          type={input.type || "text"}
+          value={values[input.label] || ""}
+          onChange={(e) => onChange(input.label, e.target.value)}
+          fullWidth
           InputProps={{
             startAdornment:
               input.label === "email" ? (
@@ -55,8 +54,8 @@ const Inputs = ({ inputs, values, onChange, error, emailError }: CustomInputsPro
                 </InputAdornment>
               ) : null,
           }}
-          error={input.label === "email" ? !!emailError : !!error}
-          helperText={input.label === "email" ? emailError : error}
+          error={input.label === "email" ? !!emailError : !!error} 
+          helperText={input.label === "email" ? emailError : error}  
         />
       ))}
     </Box>

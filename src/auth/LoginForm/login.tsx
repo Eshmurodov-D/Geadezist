@@ -8,37 +8,34 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
-
+  // register buttonni bossa regsiter pagega utb ketadi
   const handleRegisterNavigation = () => {
     navigate("/register");
   };
 
   const handleSubmit = () => {
-    // Email validatsiyasi (to'g'ri formatda bo'lishi kerak)
+    // emailni tekshrsh uchun funksya
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailRegex.test(email)) {
       setEmailError("Please enter a valid email address.");
       return;
     } else {
-      setEmailError(""); // Email formatini to'g'ri kiritgan bo'lsa, xatolikni tozalash
+      setEmailError(""); 
     }
-
-    // Parol validatsiyasi (8-16 ta belgidan kam bo'lmasligi kerak)
-    if (password.length < 8 || password.length > 16) {
-      setError("Password must be between 8 and 16 characters.");
+    //loginni parolini tekshiradgan funksya
+    if (password.length < 5 || password.length > 15) {
+      setError("Parol 5tadan kam bolmasin va 15tadan kop bolmasin");
       return;
     } else {
-      setError(""); // Parol uzunligini to'g'ri kiritgan bo'lsa, xatolikni tozalash
+      setError("");
     }
 
-    // Hozirgi kunda parolni to'g'riligini tekshirishni qo'shish mumkin
-    // Misol uchun, sizning API'ni chaqirish
-
-    // Agar muvaffaqiyatli kirsa
-    navigate("/dashboard"); // Kirish muvaffaqiyatli bo'lsa
+  //  logindn tugri utilsa dashboardga otvoradi
+    navigate("/dashboard"); 
   };
 
-  // Login tugmasi faolligi uchun shart
+  // inputlaga narsa kiritmasa yoki xato kiritsa button disabled tuadi
+
   const isLoginButtonDisabled = !(email && password) || !!error || !!emailError;
 
   return (
