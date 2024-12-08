@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Switch } from "../ui/switch";
-import { Label } from "../ui/label";
+// import { Label } from "../ui/label";
 
 function Navbar() {
   const [toggleSidebar, setToggleSidebar] = useState(false);

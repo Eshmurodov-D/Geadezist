@@ -1,12 +1,15 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Register from "./auth/RegisterForm/register";
 import ChangePassword from "./auth/ChangePasswordForm/changePassword";
 import Login from "./auth/LoginForm/login";
 import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
-// import "toastify-js/src/toastify.css";
+import { useEffect } from "react";
+
+
 
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Routes>
