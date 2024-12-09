@@ -9,26 +9,25 @@ import Navbar from "./Components/Navigations/navbar";
 import UserPage from "./pages/UserPage/UserPage";
 // import "toastify-js/src/toastify.css";
 
-
 function App() {
-  
   return (
     <>
-    {/* <Home/> */}
-    <BrowserRouter>
-    <Navbar/>
+      {/* <Home/> */}
+      <BrowserRouter>
+        <Navbar />
 
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/changepass" element={<ChangePassword />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/ververify-email" element={<VerifyEmail />} />
-        <Route path="/EmployeeTable" element={<EmployeeTable />} />
-        <Route path="/foydalanuvchi" element={<UserPage />} />
-                {/* <Route path="/nav" element={<Navbar/>} /> */}
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/changepass" element={<ChangePassword />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/ververify-email" element={<VerifyEmail />} />
+          <Route path="/EmployeeTable" element={<EmployeeTable />} />
+          <Route path="/foydalanuvchi" element={<UserPage />} />
 
-      </Routes>
-    </BrowserRouter>
+          {/* <Route path="/nav" element={<Navbar/>} /> */}
+        </Routes>
+      </BrowserRouter>
     </>
-  );}
- export default App
+  );
+}
+export default App;

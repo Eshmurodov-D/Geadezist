@@ -50,7 +50,7 @@ function Navbar() {
                 <div className="flex items-center justify-center gap-4">
                   <Switch id="airplane-mode" />
                   <button
-                    type="button"
+                    type="button" 
                     className="flex text-sm rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
@@ -110,13 +110,13 @@ function Navbar() {
                       </a>
                     </li>
                     <li>
-                      <Link
-                        to="/foydalanuvchi"
+                      <
+                        href="#"
                         className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:text-black"
                         role="menuitem"
                       >
                         Фойдаланувчилар
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
