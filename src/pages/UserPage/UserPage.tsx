@@ -2,8 +2,8 @@ import React from "react";
 
 export default function UserPage() {
   return (
-    <div>
-      <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
+    <div className="pl-[160px]">
+      <section className="bg-gray-50 dark:bg-gray-900  p-3 sm:p-5 antialiased">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div className="bg-gray-50 flex justify-center items-center dark:bg-gray-900">
