@@ -161,7 +161,7 @@ function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href=""
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
@@ -171,7 +171,7 @@ function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/UserResults"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
