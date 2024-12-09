@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Switch } from "../ui/switch";
-import { Link } from "react-router-dom";
 // import { Label } from "../ui/label";
 
 function Navbar() {
@@ -22,7 +21,7 @@ function Navbar() {
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
@@ -46,7 +45,7 @@ function Navbar() {
                 <div className="flex items-center justify-center gap-4">
                   <Switch id="airplane-mode" />
                   <button
-                    type="button" 
+                    type="button"
                     className="flex text-sm rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
@@ -54,7 +53,7 @@ function Navbar() {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg  "
+                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                       alt="user photo"
                     />
                   </button>
@@ -126,7 +125,7 @@ function Navbar() {
         id="logo-sidebar"
         className={`${
           toggleSidebar ? "translate-x-0" : "-translate-x-full"
-        } fixed top-0 left-0 z-40 w-64 h-screen transition-transform bg-white border-r border-gray-200 sm:translate-x-0 `}
+        } fixed top-0 left-0 z-40 w-64 h-screen transition-transform bg-white border-r border-gray-200 lg:translate-x-0 `}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto flex items-center justify-center bg-white dark:bg-white">
@@ -176,12 +175,12 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <Link
-                to="/EmployeeTable"
+              <a
+                href="#"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">Ходимлар</span>
-              </Link>
+              </a>
             </li>
             <li>
               <a
@@ -195,7 +194,9 @@ function Navbar() {
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64"></div>
+      <div className="p-4 sm:ml-64">
+        
+      </div>
     </>
   );
 }
