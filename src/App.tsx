@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./auth/RegisterForm/register";
 import ChangePassword from "./auth/ChangePasswordForm/changePassword";
 import Login from "./auth/LoginForm/login";
 import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
-import { useEffect } from "react";
+import Home from "./pages/HomePage/home";
 
 
 
@@ -11,6 +11,8 @@ import { useEffect } from "react";
 function App() {
   
   return (
+    <>
+    <Home/>
     <BrowserRouter>
       <Routes>
         <Route path="/register" element={<Register />} />
@@ -20,5 +22,6 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+    </>
   );}
  export default App

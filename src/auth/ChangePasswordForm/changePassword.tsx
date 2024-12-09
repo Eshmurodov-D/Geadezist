@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import  { useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
 import Inputs from "../../components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
+import Btn from "../../components/button/button";
+import { useNavigate } from "react-router-dom";
 
 function ChangePassword() {
   // State variables
@@ -10,7 +12,7 @@ function ChangePassword() {
     "confirm-password": "",
   });
   const [error, setError] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [emailError] = useState("");
 
   // Function to handle input changes
   const handleInputChange = (label: string, value: string) => {
@@ -42,9 +44,12 @@ function ChangePassword() {
     if (validatePasswords()) {
       console.log("Password updated successfully!");
       alert("Password updated successfully.");
-      // Here you can add your API call or any other action to update the password.
     }
   };
+  let navigate = useNavigate()
+  const handleNav = () => {
+    navigate('/login')
+  }
 
   const inputs = [
     {
@@ -118,6 +123,8 @@ function ChangePassword() {
         >
           Update Password
         </Button>
+        <Btn text="Login" onClick={handleNav}/>
+
       </Box>
     </Box>
   );
