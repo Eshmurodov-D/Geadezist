@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Switch } from "../ui/switch";
+import { Link } from "react-router-dom";
 // import { Label } from "../ui/label";
 
 function Navbar() {
@@ -160,13 +161,13 @@ function Navbar() {
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
-                  Фойдаланувчилар
+                  <Link to={"/foydalanuvchi"}>Фойдаланувчилар</Link>
                 </span>
               </a>
             </li>
             <li>
               <a
-                href="/UserResults"
+                href="/results"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
@@ -175,12 +176,12 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/EmployeeTable"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">Ходимлар</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -194,9 +195,7 @@ function Navbar() {
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64">
-        
-      </div>
+      <div className="p-4 sm:ml-64"></div>
     </>
   );
 }
