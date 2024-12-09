@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Switch } from "../ui/switch";
+import { Link } from "react-router-dom";
 // import { Label } from "../ui/label";
 
 function Navbar() {
@@ -45,7 +46,7 @@ function Navbar() {
                 <div className="flex items-center justify-center gap-4">
                   <Switch id="airplane-mode" />
                   <button
-                    type="button"
+                    type="button" 
                     className="flex text-sm rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
@@ -53,7 +54,7 @@ function Navbar() {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg  "
                       alt="user photo"
                     />
                   </button>
@@ -175,12 +176,12 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/EmployeeTable"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">Ходимлар</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a

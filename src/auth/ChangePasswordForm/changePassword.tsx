@@ -1,8 +1,9 @@
 import  { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import Inputs from "../../components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
-import Btn from "../../components/button/button";
+import Inputs from "../../Components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
+import Btn from "../../Components/button/button";
 import { useNavigate } from "react-router-dom";
+
 
 function ChangePassword() {
   // State variables
@@ -46,10 +47,11 @@ function ChangePassword() {
       alert("Password updated successfully.");
     }
   };
-  let navigate = useNavigate()
+  const navigate = useNavigate(); // useNavigate hook
+
   const handleNav = () => {
-    navigate('/login')
-  }
+    navigate("/login"); // Login sahifasiga yo‘naltirish
+  };
 
   const inputs = [
     {

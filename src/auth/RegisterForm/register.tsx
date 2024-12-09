@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Button, Box, Typography, FormControlLabel, Checkbox, Modal, Paper, IconButton } from "@mui/material";
-import Inputs from "../../components/inputs/inputs"; // Inputs komponentini import qilish
+// import Inputs from "../../components/inputs/inputs"; // Inputs komponentini import qilish
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CloseIcon from "@mui/icons-material/Close";
+import Inputs from "../../Components/inputs/inputs";
 
 
 function Register() {

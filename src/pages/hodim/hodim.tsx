@@ -29,7 +29,7 @@ const EmployeeTable: React.FC = () => {
     },
   ]);
 
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [formValues, setFormValues] = useState({
     adminCategory: "",
@@ -40,7 +40,6 @@ const EmployeeTable: React.FC = () => {
     password: "",
     confirmPassword: "",
   });
-  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
   const toggleModal = () => setModalOpen((prev) => !prev);
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -98,8 +97,7 @@ const EmployeeTable: React.FC = () => {
         } transition-transform duration-300 lg:static lg:translate-x-0`}
       >
         <div className="p-4 text-lg font-semibold border-b flex justify-between items-center">
-          <span>Бошқарув панели</span>
-          <button
+          {/* <button
             className="text-gray-600 lg:hidden focus:outline-none"
             onClick={toggleSidebar}
           >
@@ -117,14 +115,14 @@ const EmployeeTable: React.FC = () => {
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 p-6">
         <div className="flex items-center justify-between mb-6">
-          <button
+          {/* <button
             onClick={toggleSidebar}
             className="text-gray-600 lg:hidden focus:outline-none"
           >
@@ -142,8 +140,8 @@ const EmployeeTable: React.FC = () => {
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
-          </button>
-          <h1 className="text-2xl font-semibold text-gray-700">Ходимлар</h1>
+          </button> */}
+          <h1 className="text-2xl pt-10 font-semibold text-gray-700">Ходимлар</h1>
         </div>
 
         {/* Add Button */}
@@ -152,7 +150,9 @@ const EmployeeTable: React.FC = () => {
           className="flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded shadow hover:bg-blue-700"
         >
           <span className="text-lg mr-2">+</span> Қўшиш
+          
         </button>
+
 
         {/* Table */}
         <div className="overflow-x-auto mt-4">
@@ -212,6 +212,7 @@ const EmployeeTable: React.FC = () => {
             </tbody>
           </table>
         </div>
+
       </div>
 
       {/* Modal */}
