@@ -141,7 +141,7 @@ const EmployeeTable: React.FC = () => {
               />
             </svg>
           </button> */}
-          <h1 className="text-2xl font-semibold text-gray-700">Ходимлар</h1>
+          <h1 className="text-2xl pt-10 font-semibold text-gray-700">Ходимлар</h1>
         </div>
 
         {/* Add Button */}

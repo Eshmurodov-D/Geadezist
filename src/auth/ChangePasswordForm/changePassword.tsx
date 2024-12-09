@@ -1,6 +1,9 @@
 import  { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import Inputs from "@/Components/inputs/inputs";
+import Inputs from "../../Components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
+import Btn from "../../Components/button/button";
+import { useNavigate } from "react-router-dom";
+
 
 function ChangePassword() {
   // State variables
@@ -42,8 +45,12 @@ function ChangePassword() {
     if (validatePasswords()) {
       console.log("Password updated successfully!");
       alert("Password updated successfully.");
-      // Here you can add your API call or any other action to update the password.
     }
+  };
+  const navigate = useNavigate(); // useNavigate hook
+
+  const handleNav = () => {
+    navigate("/login"); // Login sahifasiga yo‘naltirish
   };
 
   const inputs = [
@@ -101,7 +108,8 @@ function ChangePassword() {
           emailError={emailError} // Not using emailError here but it's passed for future extension
         />
 
-        <Button          variant="contained"
+        <Button        
+          variant="contained"
           color="primary"
           size="large"
           onClick={handleSubmit}
@@ -117,6 +125,8 @@ function ChangePassword() {
         >
           Update Password
         </Button>
+        <Btn text="Login" onClick={handleNav}/>
+
       </Box>
     </Box>
   );
