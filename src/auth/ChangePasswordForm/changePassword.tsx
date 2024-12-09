@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-// import { Box, Button, TextField, Typography } from "@mui/material";
-import Inputs from "../../components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
+import  { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
+import Inputs from "@/Components/inputs/inputs";
 
 function ChangePassword() {
   // State variables
@@ -11,7 +10,7 @@ function ChangePassword() {
     "confirm-password": "",
   });
   const [error, setError] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [emailError] = useState("");
 
   // Function to handle input changes
   const handleInputChange = (label: string, value: string) => {

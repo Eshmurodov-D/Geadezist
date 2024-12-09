@@ -4,12 +4,15 @@ import ChangePassword from "./auth/ChangePasswordForm/changePassword";
 import Login from "./auth/LoginForm/login";
 import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
 import EmployeeTable from "./pages/hodim/hodim";
+import { Home } from "@mui/icons-material";
 // import "toastify-js/src/toastify.css";
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+    <Home/>
+        <BrowserRouter>
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/changepass" element={<ChangePassword />} />
@@ -18,5 +21,7 @@ function App() {
         <Route path="/EmployeeTable" element={<EmployeeTable />} />
       </Routes>
     </BrowserRouter>
+    </>
+
   );}
  export default App
