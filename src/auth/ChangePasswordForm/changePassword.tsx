@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+// import { Box, Button, TextField, Typography } from "@mui/material";
 import Inputs from "../../components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
+import { Box, Button, Typography } from "@mui/material";
 
 function ChangePassword() {
   // State variables
@@ -88,7 +89,7 @@ function ChangePassword() {
         flexDirection="column"
         gap={3}
       >
-        <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+        <Typography variant="h4" align="center" fontWeight="bold" gutterBottom >
           Change Password
         </Typography>
 
@@ -101,8 +102,7 @@ function ChangePassword() {
           emailError={emailError} // Not using emailError here but it's passed for future extension
         />
 
-        <Button
-          variant="contained"
+        <Button          variant="contained"
           color="primary"
           size="large"
           onClick={handleSubmit}

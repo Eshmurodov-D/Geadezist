@@ -3,6 +3,9 @@ import Register from "./auth/RegisterForm/register";
 import ChangePassword from "./auth/ChangePasswordForm/changePassword";
 import Login from "./auth/LoginForm/login";
 import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
+import EmployeeTable from "./pages/hodim/hodim";
+// import "toastify-js/src/toastify.css";
+
 
 function App() {
   return (
@@ -11,8 +14,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/changepass" element={<ChangePassword />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/verify-email" element={<VerifyEmail />} />
-
+        <Route path="/ververify-email" element={<VerifyEmail />} />
+        <Route path="/EmployeeTable" element={<EmployeeTable />} />
       </Routes>
     </BrowserRouter>
   );}
