@@ -6,15 +6,17 @@ import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
 // import Home from "./pages/HomePage/home";
 import EmployeeTable from "./pages/hodim/hodim";
 import Navbar from "./Components/Navigations/navbar";
-import UserPage from "./pages/UserPage/UserPage";
+import { UserResults } from "./pages/UserResults/UserResults";
 // import "toastify-js/src/toastify.css";
 
+
 function App() {
+  
   return (
     <>
-      {/* <Home/> */}
-      <BrowserRouter>
-        <Navbar />
+    {/* <Home/> */}
+    <BrowserRouter>
+    <Navbar/>
 
         <Routes>
           <Route path="/register" element={<Register />} />
@@ -22,12 +24,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/ververify-email" element={<VerifyEmail />} />
           <Route path="/EmployeeTable" element={<EmployeeTable />} />
-          <Route path="/foydalanuvchi" element={<UserPage />} />
-
+          <Route path="/results" element={<UserResults />} />
           {/* <Route path="/nav" element={<Navbar/>} /> */}
         </Routes>
       </BrowserRouter>
     </>
-  );
-}
-export default App;
+  );}
+ export default App
