@@ -122,25 +122,6 @@ const EmployeeTable: React.FC = () => {
       {/* Main Content */}
       <div className="flex-1 p-6">
         <div className="flex items-center justify-between mb-6">
-          {/* <button
-            onClick={toggleSidebar}
-            className="text-gray-600 lg:hidden focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button> */}
           <h1 className="text-2xl pt-10 font-semibold text-gray-700">Ходимлар</h1>
         </div>
 
