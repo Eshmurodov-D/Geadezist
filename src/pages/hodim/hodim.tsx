@@ -141,7 +141,9 @@ const EmployeeTable: React.FC = () => {
               />
             </svg>
           </button> */}
-          <h1 className="text-2xl pt-10 font-semibold text-gray-700">Ходимлар</h1>
+          <h1 className="text-2xl pt-10 font-semibold text-gray-700">
+            Ходимлар
+          </h1>
         </div>
 
         {/* Add Button */}
@@ -150,9 +152,7 @@ const EmployeeTable: React.FC = () => {
           className="flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded shadow hover:bg-blue-700"
         >
           <span className="text-lg mr-2">+</span> Қўшиш
-          
         </button>
-
 
         {/* Table */}
         <div className="overflow-x-auto mt-4">
@@ -212,64 +212,67 @@ const EmployeeTable: React.FC = () => {
             </tbody>
           </table>
         </div>
-
       </div>
 
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+          <div className="bg-white w-full max-w-md md:max-w-lg mx-4 md:mx-auto p-6 rounded-lg shadow-lg">
             <h2 className="text-lg font-bold mb-4">Янги ходим қўшиш</h2>
-            <div className="mb-4">
-              <label className="block text-sm">Админ тоифаси</label>
-              <select
-                name="adminCategory"
-                value={formValues.adminCategory}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border rounded-lg"
-              >
-                <option value="">Тоифани танланг</option>
-                <option value="Тестер админ">Тестер админ</option>
-                <option value="Текширувчи админ">Текширувчи админ</option>
-              </select>
-            </div>
-            {[
-              { name: "firstName", label: "Исм", type: "text" },
-              { name: "lastName", label: "Фамилия", type: "text" },
-              { name: "phone", label: "Телефон рақами", type: "text" },
-              { name: "email", label: "Электрон почта", type: "email" },
-              { name: "password", label: "Парол", type: "password" },
-              {
-                name: "confirmPassword",
-                label: "Паролни тасдиқлаш",
-                type: "password",
-              },
-            ].map(({ name, label, type }) => (
-              <div className="mb-4" key={name}>
-                <label className="block text-sm">{label}</label>
-                <input
-                  type={type}
-                  name={name}
-                  value={(formValues as Record<string, string>)[name]}
+            <form>
+              <div className="mb-4">
+                <label className="block text-sm mb-1">Админ тоифаси</label>
+                <select
+                  name="adminCategory"
+                  value={formValues.adminCategory}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border rounded-lg"
-                />
+                >
+                  <option value="">Тоифани танланг</option>
+                  <option value="Тестер админ">Тестер админ</option>
+                  <option value="Текширувчи админ">Текширувчи админ</option>
+                </select>
               </div>
-            ))}
-            <div className="flex justify-end">
-              <button
-                onClick={toggleModal}
-                className="px-4 py-2 text-sm text-gray-600"
-              >
-                Бекор қилиш
-              </button>
-              <button
-                onClick={handleSave}
-                className="px-4 py-2 text-sm text-white bg-blue-600 rounded-lg ml-2"
-              >
-                Сақлаш
-              </button>
-            </div>
+              {[
+                { name: "firstName", label: "Исм", type: "text" },
+                { name: "lastName", label: "Фамилия", type: "text" },
+                { name: "phone", label: "Телефон рақами", type: "text" },
+                { name: "email", label: "Электрон почта", type: "email" },
+                { name: "password", label: "Парол", type: "password" },
+                {
+                  name: "confirmPassword",
+                  label: "Паролни тасдиқлаш",
+                  type: "password",
+                },
+              ].map(({ name, label, type }) => (
+                <div className="mb-4" key={name}>
+                  <label className="block text-sm mb-1">{label}</label>
+                  <input
+                    type={type}
+                    name={name}
+                    value={(formValues as Record<string, string>)[name]}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+              ))}
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={toggleModal}
+                  className="px-4 py-2 text-sm text-gray-600"
+                >
+                  Бекор қилиш
+                </button>
+                <button
+                  type="submit"
+                  onClick={handleSave}
+                  className="px-4 py-2 text-sm text-white bg-blue-600 rounded-lg ml-2"
+                >
+                  Сақлаш
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
