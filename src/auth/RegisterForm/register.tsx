@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CloseIcon from "@mui/icons-material/Close";
-import Inputs from "../../Components/inputs/inputs";
+import Inputs from "../../components/inputs/inputs";
 
 
 function Register() {
@@ -204,7 +204,6 @@ function Register() {
         </Box>
       </Modal>
 
-      {/* Toast container for notifications */}
       <ToastContainer />
     </Box>
   );
