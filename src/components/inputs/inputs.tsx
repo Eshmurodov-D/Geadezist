@@ -49,7 +49,7 @@ const Inputs = ({ inputs, values, onChange, error, emailError }: CustomInputsPro
                   <Home color="primary" />
                 </InputAdornment>
               ) : input.label === "city" ? (
-                <InputAdornment position="start">
+                <InputAdornment position="start"> 
                   <LocationCity color="primary" />
                 </InputAdornment>
               ) : null,
