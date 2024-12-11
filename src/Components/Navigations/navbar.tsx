@@ -80,7 +80,7 @@ function Navbar() {
                   <ul className="py-1" role="none">
                     <li>
                       <a
-                        href="#"
+                        href="/dashboard"
                         className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:text-black "
                         role="menuitem"
                       >
@@ -133,7 +133,7 @@ function Navbar() {
           <ul className="space-y-2 w-full font-medium">
             <li>
               <a
-                href="#"
+                href="dashboard"
                 className="flex items-center p-2 border py-4 rounded-lg shadow-lg hover:bg-gray-100"
               >
                 <span className="ms-3">Бошқарув панели</span>
@@ -157,7 +157,7 @@ function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href=""
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
@@ -167,7 +167,7 @@ function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/results"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
