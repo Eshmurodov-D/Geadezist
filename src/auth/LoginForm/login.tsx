@@ -28,7 +28,7 @@ function Login() {
   };
 
   const handleSubmit = () => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zAzerbaijani]{2,6}$/;
     if (!emailRegex.test(email)) {
       setEmailError("Iltimos, to'g'ri email manzilini kiriting.");
       return;
@@ -77,7 +77,7 @@ function Login() {
         margin: 0,
       }}
     >
-      {/* Chap tomon: Rasm yoki illyustratsiya */}
+      {/* Chap tomon: Rasm */}
       <Grid
         item
         xs={12}
@@ -96,7 +96,7 @@ function Login() {
           src={logImage} // Rasm yo‘li
           alt="Login Illustration"
           sx={{
-            maxWidth: "100%", // Rasmni kattaroq qilish
+            maxWidth: "100%", // Rasmni kengligini maksimal qilish
             height: "auto",
             objectFit: "contain", // Rasmning nisbatini saqlash
           }}
@@ -115,17 +115,23 @@ function Login() {
           bgcolor: "white", // Login formasining orqa foni oq
           height: "100vh", // Butun balandlikni egallash
           padding: 4,
+          position: 'absolute', // Formani rasmga yaqinlashtirish
+          top: 0,
+          right: 0,
+          zIndex: 1, // Formaning rasmni yutib ketmasligi uchun
         }}
       >
         <Box
           sx={{
             maxWidth: 450, // Formaning kengligini kattaroq qilish
             width: "100%",
-            padding: 6, // Ichki bo‘shliqni kattaroq qilish
+            padding: 6, // Formaning ichki bo'shlig'ini kattaroq qilish
             borderRadius: 2,
+            boxShadow: 3, // Umumiy ko‘rinishni yaxshilash uchun
+            background: 'rgba(255, 255, 255, 0.9)', // Formaga engil shaffof fon qo‘shish
           }}
         >
-          <Typography variant="h5" align="center" fontWeight="bold" gutterBottom>
+          <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
             Тизимга кириш
           </Typography>
 
@@ -138,7 +144,7 @@ function Login() {
             error={!!emailError}
             helperText={emailError}
             margin="normal"
-            sx={{ fontSize: '16px' }} // Kattaroq shrift o‘lchami
+            sx={{ fontSize: '18px', height: '60px' }} // Kattaroq shrift o‘lchami va input maydoni
           />
 
           <TextField
@@ -151,7 +157,7 @@ function Login() {
             error={!!error}
             helperText={error}
             margin="normal"
-            sx={{ fontSize: '16px' }} // Kattaroq shrift o‘lchami
+            sx={{ fontSize: '18px', height: '60px' }} // Kattaroq shrift o‘lchami va input maydoni
           />
 
           <Button
@@ -161,7 +167,11 @@ function Login() {
             onClick={handleSubmit}
             fullWidth
             disabled={isLoginButtonDisabled}
-            sx={{ marginTop: 3, fontSize: '16px' }} // Buton o‘lchamini kattaroq qilish
+            sx={{
+              marginTop: 3, 
+              fontSize: '18px', 
+              padding: '16px', // Kattaroq bo‘lishi uchun
+            }}
           >
             Тизимга кириш
           </Button>
@@ -171,7 +181,7 @@ function Login() {
               variant="text"
               color="primary"
               onClick={handleRegisterNavigation}
-              style={{ fontSize: '12px' }} // Kichikroq shrift
+              style={{ fontSize: '14px' }} // Kichikroq shrift
             >
               Рўйхатдан ўтиш
             </Button>
@@ -179,7 +189,7 @@ function Login() {
               variant="text"
               color="secondary"
               onClick={() => navigate("/changepass")}
-              style={{ fontSize: '12px' }} // Kichikroq shrift
+              style={{ fontSize: '14px' }} // Kichikroq shrift
             >
               Паролни унутдингизми?
             </Button>
