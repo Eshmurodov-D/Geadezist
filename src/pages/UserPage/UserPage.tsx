@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba31f58ec159e7f35908e280bdfac3c764351a03
 
 export default function UserPage() {
   return (

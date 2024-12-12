@@ -4,11 +4,10 @@ import ChangePassword from "./auth/ChangePasswordForm/changePassword";
 import Login from "./auth/LoginForm/login";
 import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
 // import Home from "./pages/HomePage/home";
-
+import EmployeeTable from "./pages/hodim/hodim";
 import Navbar from "./Components/Navigations/navbar";
 import { UserResults } from "./pages/UserResults/UserResults";
 import { Dashboard } from "./Components/Dashboard/Dashboard";
-import EmployeeTableList from "./pages/hodim/EmployeeTable";
 // import "toastify-js/src/toastify.css";
 
 
@@ -16,19 +15,16 @@ function App() {
   
   return (
     <>
-    {/* <Home/> */}
     <BrowserRouter>
-    <Navbar/>
-
+    {/* <Navbar/> */}
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/changepass" element={<ChangePassword />} />
           <Route path="/login" element={<Login />} />
           <Route path="/ververify-email" element={<VerifyEmail />} />
-          <Route path="/EmployeeTable" element={<EmployeeTableList />} />
+          <Route path="/EmployeeTable" element={<EmployeeTable />} />
           <Route path="/results" element={<UserResults />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/nav" element={<Navbar/>} /> */}
+          <Route path="/foydalanuvchi" element={<UserPage/>} />
         </Routes>
       </BrowserRouter>
     </>
