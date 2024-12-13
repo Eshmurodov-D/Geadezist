@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
 
+
 export default function UserPage() {
   return (
     <div className="flex flex-col lg:flex-row bg-gray-50 min-h-screen">

@@ -90,6 +90,7 @@ function Navbar() {
                     <li>
                       <a
                         href="#"
+
                         className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:text-black"
                         role="menuitem"
                       >
@@ -161,7 +162,7 @@ function Navbar() {
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
-                  <Link to={"/foydalanuvchi"}>Фойдаланувчилар</Link>
+                  Фойдаланувчилар
                 </span>
               </a>
             </li>
@@ -195,7 +196,9 @@ function Navbar() {
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64"></div>
+      <div className="p-4 sm:ml-64">
+        
+      </div>
     </>
   );
 }
