@@ -6,8 +6,7 @@ export default function UserPage() {
     <div className="flex flex-col lg:flex-row bg-gray-50 min-h-screen">
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-20 w-64 bg-white shadow-md transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed inset-y-0 left-0 z-20 w-64 bg-white shadow-md transform ${ isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 lg:static lg:translate-x-0`}
       >
         <div className="p-4 text-lg font-semibold border-b flex justify-between items-center">
