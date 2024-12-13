@@ -24,7 +24,7 @@ function App() {
           <Route path="/changepass" element={<ChangePassword />} />
           <Route path="/login" element={<Login />} />
           <Route path="/ververify-email" element={<VerifyEmail />} />
-          <Route path="/EmployeeTable" element={<EmployeeTable />} />
+          {/* <Route path="/EmployeeTable" element={<EmployeeTableList />} /> */}
           <Route path="/results" element={<UserResults />} />
           <Route path="/foydalanuvchi" element={<UserPage/>} />
           <Route path="/*" element={<NotFoundPage/>}/>
