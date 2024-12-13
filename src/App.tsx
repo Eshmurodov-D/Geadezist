@@ -4,7 +4,6 @@ import ChangePassword from "./auth/ChangePasswordForm/changePassword";
 import Login from "./auth/LoginForm/login";
 import VerifyEmail from "./auth/VerifyEmail/verfyEmail";
 // import Home from "./pages/HomePage/home";
-import EmployeeTable from "./pages/hodim/hodim";
 
 import { UserResults } from "./pages/UserResults/UserResults";
 import { Dashboard } from "./Components/Dashboard/Dashboard";
