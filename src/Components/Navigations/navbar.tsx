@@ -167,14 +167,14 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a
-                href="/results"
+              <Link
+                to="/results"
                 className="flex items-center p-2 py-4  rounded-lg border shadow-lg hover:bg-gray-100   group"
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Фойдаланувчилар <br /> натижаси
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
               <Link

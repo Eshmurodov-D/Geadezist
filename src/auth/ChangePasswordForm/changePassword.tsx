@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import Inputs from "../../Components/inputs/inputs"; // Assuming this is the custom Inputs component you provided
+import Inputs from "../../Components/inputs/inputs"; 
 import Btn from "../../Components/buttons/addButton";
 import { useNavigate } from "react-router-dom";
 

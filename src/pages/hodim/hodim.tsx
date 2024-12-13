@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Table from "../../Components/table/table"; // Table komponentini import qiling
 import { MoreVertical } from "react-feather";
 
@@ -13,9 +13,18 @@ interface Employee {
 
 const EmployeeTable = () => {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const headers = ["T/P", "Тўлиқ исм", "Категория", "Телефон", "Қайта тест топш.", "Статус"];
+  const headers: { key: keyof Employee; label: string }[] = [
+    { key: "t_p", label: "T/P" },
+    { key: "tulik_ism", label: "Тўлиқ исм" },
+    { key: "kategoriya", label: "Категория" },
+    { key: "telefon", label: "Телефон" },
+    { key: "qayta_test_topsh", label: "Қайта тест топш." },
+    { key: "status", label: "Статус" },
+  ];
+  
+
   const data: Employee[] = [
     {
       t_p: 1,
@@ -39,7 +48,7 @@ const EmployeeTable = () => {
         <MoreVertical size={16} />
       </button>
       {activeDropdown === item.t_p && (
-        <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow">
+        <div className=" right-0 mt-2 w-48 bg-white border rounded shadow">
           <button className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
             Таҳрирлаш
           </button>
