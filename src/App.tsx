@@ -8,6 +8,7 @@ import EmployeeTable from "./pages/hodim/hodim";
 // import Navbar from "./components/Navigations/navbar";
 import { UserResults } from "./pages/UserResults/UserResults";
 import UserPage from "./pages/UserPage/UserPage";
+import NotFoundPage from "./pages/notFound/notFound";
 // import "toastify-js/src/toastify.css";
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <BrowserRouter>
     {/* <Navbar/> */}
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/changepass" element={<ChangePassword />} />
           <Route path="/login" element={<Login />} />
@@ -22,6 +24,7 @@ function App() {
           <Route path="/EmployeeTable" element={<EmployeeTable />} />
           <Route path="/results" element={<UserResults />} />
           <Route path="/foydalanuvchi" element={<UserPage/>} />
+          <Route path="/*" element={<NotFoundPage/>}/>
         </Routes>
       </BrowserRouter>
     </>

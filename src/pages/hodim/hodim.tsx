@@ -38,7 +38,7 @@ const EmployeeTable = () => {
   ];
 
   const handleActions = (item: Employee) => (
-    <div className="relative">
+    <div className="relative ">
       <button
         onClick={() =>
           setActiveDropdown(activeDropdown === item.t_p ? null : item.t_p)
@@ -48,7 +48,7 @@ const EmployeeTable = () => {
         <MoreVertical size={16} />
       </button>
       {activeDropdown === item.t_p && (
-        <div className=" right-0 mt-2 w-48 bg-white border rounded shadow">
+        <div className="absolute  right-0 mt-2 w-48 bg-white border rounded shadow">
           <button className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
             Таҳрирлаш
           </button>
