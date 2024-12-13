@@ -8,6 +8,7 @@ import EmployeeTable from "./pages/hodim/hodim";
 import Navbar from "./Components/Navigations/navbar";
 import { UserResults } from "./pages/UserResults/UserResults";
 import { Dashboard } from "./Components/Dashboard/Dashboard";
+import UserPage from "./pages/UserPage/UserPage";
 // import "toastify-js/src/toastify.css";
 
 
@@ -20,6 +21,7 @@ function App() {
     <Navbar/>
 
         <Routes>
+          <Route path="/foydalanuvchi" element={<UserPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/changepass" element={<ChangePassword />} />
           <Route path="/login" element={<Login />} />

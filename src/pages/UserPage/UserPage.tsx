@@ -1,219 +1,257 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function UserPage() {
+interface Employee {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+  isActive: boolean;
+}
+
+import { FaEye } from "react-icons/fa";
+
+const EmployeeTable: React.FC = () => {
+  const [employees, setEmployees] = useState<Employee[]>([
+    {
+      id: 1,
+      firstName: "Alisher",
+      lastName: "Sodiqov",
+      email: "alishersodiqov70@gmail.com",
+      role: "Тестер админ",
+      isActive: true,
+    },
+    {
+      id: 2,
+      firstName: "Alisher",
+      lastName: "Sodiqов",
+      email: "alisher@gmail.com",
+      role: "Текширувчи админ",
+      isActive: true,
+    },
+  ]);
+
+  const [isSidebarOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [formValues, setFormValues] = useState({
+    adminCategory: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const toggleModal = () => setModalOpen((prev) => !prev);
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const handleSave = () => {
+    const passwordLength = formValues.password.length;
+    if (
+      formValues.adminCategory &&
+      formValues.firstName &&
+      formValues.lastName &&
+      formValues.email &&
+      passwordLength >= 5 &&
+      passwordLength <= 10 &&
+      formValues.password === formValues.confirmPassword
+    ) {
+      const newEmployee = {
+        id: employees.length + 1,
+        firstName: formValues.firstName,
+        lastName: formValues.lastName,
+        email: formValues.email,
+        role: formValues.adminCategory,
+        isActive: true,
+      };
+      setEmployees([...employees, newEmployee]);
+      setModalOpen(false);
+      setFormValues({
+        adminCategory: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+    } else {
+      if (passwordLength < 5 || passwordLength > 10) {
+        alert("Парол 5-10 белгидан иборат бўлиши керак!");
+      } else if (formValues.password !== formValues.confirmPassword) {
+        alert("Пароллар мос эмас!");
+      } else {
+        alert("Барча майдонларни тўлдиринг!");
+      }
+    }
+  };
+
   return (
-    <div className="pl-[160px]">
-      <section className="bg-gray-50 dark:bg-gray-900  p-3 sm:p-5 antialiased">
-        <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
-          <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-            <div className="bg-gray-50 flex justify-center items-center dark:bg-gray-900">
-              <div className="w-full bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-                <form className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="relative flex-grow">
-                    <label htmlFor="search-input" className="sr-only">
-                      Search
-                    </label>
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                      <svg
-                        aria-hidden="true"
-                        className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <input
-                      type="text"
-                      id="search-input"
-                      className="w-full bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                      placeholder="Qidiruv..."
-                      required
-                    />
-                  </div>
-
-                  <div className="flex-grow">
-                    <label htmlFor="region-select" className="sr-only">
-                      Viloyatni tanlang
-                    </label>
-                    <select
-                      id="region-select"
-                      className="w-full bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    >
-                      <option value="">Viloyatni tanlang</option>
-                      <option value="tashkent">Toshkent</option>
-                      <option value="samarkand">Samarqand</option>
-                    </select>
-                  </div>
-
-                  <div className="flex-grow">
-                    <label htmlFor="status-select" className="sr-only">
-                      Statusni tanlang
-                    </label>
-                    <select
-                      id="status-select"
-                      className="w-full bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    >
-                      <option value="">Statusni tanlang</option>
-                      <option value="active">Faol</option>
-                      <option value="inactive">Nofaol</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <button
-                      type="submit"
-                      className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800"
-                    >
-                      Qidirish
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                  <tr>
-                    <th scope="col" className="px-4 py-4">
-                      T/P
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Ism
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Kategoriya
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Telefon
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Qayta test toshirish
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Status
-                    </th>
-                    <th scope="col" className="px-1 py-3">
-                      Xarakat
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      <span className="sr-only">Actions</span>
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr className="border-b dark:border-gray-700">
-                    <th
-                      scope="row"
-                      className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Apple iMac 27"
-                    </th>
-                    <td className="px-4 py-3">PC</td>
-                    <td className="px-4 py-3">Apple</td>
-                    <td className="px-4 py-3">+99890909090</td>
-                    <td className="px-4 py-3">+99890909090</td>
-                    <td className="px-4 py-3">$2999</td>
-                    <td className="px-4 py-3 flex items-center">
-                      <button
-                        id="apple-imac-27-dropdown-button"
-                        data-dropdown-toggle="apple-imac-27-dropdown"
-                        className="items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-                        type="button"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          aria-hidden="true"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                        </svg>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <nav
-              className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
-              aria-label="Table navigation"
+    <div className="flex flex-col lg:flex-row bg-gray-50 min-h-screen">
+      {/* Sidebar */}
+      <div
+        className={`fixed inset-y-0 left-0 z-20 w-64 bg-white shadow-md transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 lg:static lg:translate-x-0`}
+      >
+        <div className="p-4 text-lg font-semibold border-b flex justify-between items-center">
+          {/* <button
+            className="text-gray-600 lg:hidden focus:outline-none"
+            onClick={toggleSidebar}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                Showing{" "}
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  1-10
-                </span>{" "}
-                of{" "}
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  1000
-                </span>
-              </span>
-              <ul className="inline-flex items-stretch -space-x-px">
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    <span className="sr-only">Previous</span>
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center h-full py-1.5 px-3 text-gray-500 bg-white border-t border-b border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    1
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center h-full py-1.5 px-3 text-gray-500 bg-white rounded-r-lg border-t border-b border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
-                    <span className="sr-only">Next</span>
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M7.293 5.293a1 1 0 011.414 0L10 7.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button> */}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-6">
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-2xl pt-10 font-semibold text-gray-700">
+            Ходимлар
+          </h1>
+        </div>
+        <div className="flex items-center space-x-4 w-full">
+          <div className="flex-1">
+            <input
+              type="text"
+              placeholder="Фойдаланувчи қидириш..."
+              className="w-full p-2 border border-gray-300 rounded-lg text-gray-700"
+            />
+          </div>
+          <div className="flex-1">
+            <select className="w-full p-2 border border-gray-300 rounded-lg text-gray-700">
+              <option value="">Вилоятни танланг</option>
+              {/* Add options here */}
+            </select>
+          </div>
+          <div className="flex-1">
+            <select className="w-full p-2 border border-gray-300 rounded-lg text-gray-700">
+              <option value="">Туманни танланг</option>
+              {/* Add options here */}
+            </select>
           </div>
         </div>
-      </section>
+
+        {/* Table */}
+        <div className="overflow-x-auto mt-4">
+          <table className="min-w-full bg-white rounded-lg shadow">
+            <thead>
+              <tr className="bg-gray-100 text-gray-600 text-sm font-semibold">
+                <th className="px-4 py-3 text-left">Т/Р</th>
+                <th className="px-4 py-3 text-left">Исм</th>
+                <th className="px-4 py-3 text-left hidden md:table-cell">
+                  Фамилия
+                </th>
+                <th className="px-4 py-3 text-left hidden sm:table-cell">
+                  Электрон почта
+                </th>
+                <th className="px-4 py-3 text-center">Харакат</th>
+              </tr>
+            </thead>
+            <tbody>
+              {employees.map((employee) => (
+                <tr
+                  key={employee.id}
+                  className="border-t hover:bg-gray-50 cursor-pointer"
+                >
+                  <td className="px-4 py-3">{employee.id}</td>
+                  <td className="px-4 py-3">{employee.firstName}</td>
+                  <td className="px-4 py-3 hidden md:table-cell">
+                    {employee.lastName}
+                  </td>
+                  <td className="px-4 py-3 hidden sm:table-cell">
+                    {employee.email}
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    <button className="text-gray-600 hover:text-blue-600">
+                      <FaEye />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 className="text-lg font-bold mb-4">Янги ходим қўшиш</h2>
+            <div className="mb-4">
+              <label className="block text-sm">Админ тоифаси</label>
+              <select
+                name="adminCategory"
+                value={formValues.adminCategory}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border rounded-lg"
+              >
+                <option value="">Тоифани танланг</option>
+                <option value="Тестер админ">Тестер админ</option>
+                <option value="Текширувчи админ">Текширувчи админ</option>
+              </select>
+            </div>
+            {[
+              { name: "firstName", label: "Исм", type: "text" },
+              { name: "lastName", label: "Фамилия", type: "text" },
+              { name: "phone", label: "Телефон рақами", type: "text" },
+              { name: "email", label: "Электрон почта", type: "email" },
+              { name: "password", label: "Парол", type: "password" },
+              {
+                name: "confirmPassword",
+                label: "Паролни тасдиқлаш",
+                type: "password",
+              },
+            ].map(({ name, label, type }) => (
+              <div className="mb-4" key={name}>
+                <label className="block text-sm">{label}</label>
+                <input
+                  type={type}
+                  name={name}
+                  value={(formValues as Record<string, string>)[name]}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+            ))}
+            <div className="flex justify-end">
+              <button
+                onClick={toggleModal}
+                className="px-4 py-2 text-sm text-gray-600"
+              >
+                Бекор қилиш
+              </button>
+              <button
+                onClick={handleSave}
+                className="px-4 py-2 text-sm text-white bg-blue-600 rounded-lg ml-2"
+              >
+                Сақлаш
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default EmployeeTable;
