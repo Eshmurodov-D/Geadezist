@@ -9,12 +9,9 @@ import EmployeeTable from "./pages/hodim/hodim";
 import { UserResults } from "./pages/UserResults/UserResults";
 import { Dashboard } from "./Components/Dashboard/Dashboard";
 import UserPage from "./pages/UserPage/UserPage";
-<<<<<<< HEAD
-import NotFoundPage from "./pages/notFound/notFound";
-=======
+import Test from "./pages/Questions/savollar";
 
 
->>>>>>> a890c61771f0804bd5db29796ecb76ae78b82418
 // import "toastify-js/src/toastify.css";
 function App() {
   return (
@@ -30,11 +27,8 @@ function App() {
           <Route path="/EmployeeTable" element={<EmployeeTable />} />
           <Route path="/results" element={<UserResults />} />
           <Route path="/foydalanuvchi" element={<UserPage/>} />
-<<<<<<< HEAD
-          <Route path="/*" element={<NotFoundPage/>}/>
-=======
+          <Route path="/test" element={<Test/>} />
           <Route path="/" element={<Dashboard />} />
->>>>>>> a890c61771f0804bd5db29796ecb76ae78b82418
         </Routes>
       </BrowserRouter>
     </>

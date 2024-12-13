@@ -1,4 +1,4 @@
-function Savollar() {
+function Test() {
   return (
     <>
       
@@ -6,4 +6,4 @@ function Savollar() {
   )
 }
 
-export default Savollar
+export default Test
